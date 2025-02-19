@@ -1,0 +1,182 @@
+examples,type,text
+1,Documentação Técnica,"This module integrates various data processing libraries (such as pandas and scikit-learn) and OpenAI’s GPT-4 API to automate job recommendations based on candidate profiles. The code imports data from Google Drive spreadsheets, performs preprocessing (cleaning, standardization, and column transformations), and applies matching techniques, culminating in personalized recommendations for each candidate.
+
+Key Features:
+Data Integration: Imports and consolidates data from multiple Excel files related to general information, skills, experience, and education of candidates.
+Preprocessing: Removes irrelevant columns, handles missing data, standardizes strings (lowercasing and whitespace removal), and converts dates, preparing the data for subsequent analysis.
+Job Recommendation: Uses the GPT-4 API to generate job recommendations based on the candidate's profile. The recomendar_vaga_completa function constructs a detailed prompt and extracts the API response, which includes the compatible job, compatibility percentage, and justification.
+Automation and Scalability: Implements a loop that processes multiple candidates and generates a matching table, enabling seamless integration and automatic spreadsheet updates in Google Drive.
+Technical Details:
+Import and Configuration: Essential libraries (pandas, scikit-learn, openai) are imported, and Google Drive is mounted to access data.
+Data Processing: Cleaning and standardization operations are applied using methods like fillna(), drop_duplicates(), and date transformations to ensure data consistency for the matching algorithm.
+Integration with GPT-4 API: The constructed prompt includes candidate information and a list of available job openings. The response is processed to extract key recommendation elements, and exception handling mechanisms ensure robustness in result extraction.
+Process Automation: The loop in the gerar_tabela_correspondencias function iterates through candidates, makes API calls with a pause to prevent overload, and concatenates the results into a DataFrame that is later saved in Google Drive.
+Final Considerations:
+The system presents an integrated approach to analysis and recommendations by combining data preprocessing techniques with advanced artificial intelligence. Future improvements are suggested, including refining the extraction of GPT-4 responses and adapting the algorithm to recommend multiple job opportunities, enhancing the system’s robustness and scalability."
+2,Relatório,"Overview:
+The project implements an innovative job recommendation system, integrating candidate profile analysis and automated personalized recommendations using OpenAI's GPT-4 API. The system processes data from multiple sources to provide strategic insights into candidate selection.
+
+Key Impacts:
+Recruitment Automation: Significantly reduces manual effort and accelerates the matching process between candidates and job openings, optimizing HR departments' time.
+Cutting-Edge AI Utilization: The integration with GPT-4 enables detailed profile analysis, providing recommendations with robust and well-founded justifications.
+Scalability: The system is designed to process multiple candidates simultaneously, offering flexibility for application in organizations of different sizes.
+Expected Results:
+Improved Hiring Quality: With more precise recommendations, the system helps select candidates who best align with the company’s needs.
+Resource Optimization: Automation allows HR professionals to focus on more strategic tasks, reducing operational costs.
+Market Adaptation: The ability to automatically update data from Google Drive ensures that recommendations are always based on the most recent information.
+Conclusion:
+The job recommendation system represents a significant advancement in recruitment digitalization, combining cutting-edge technology and automation to enhance the efficiency of hiring processes and support strategic decision-making in HR."
+3,Apresentação,"Slide 1 – Project Title and Objective:
+Title: AI-Powered Job Recommendation System
+Objective: Automate the matching between candidate profiles and job openings using integrated data and artificial intelligence.
+
+Slide 2 – Key Features:
+Data Integration:
+
+Importing spreadsheets from Google Drive
+Consolidation of experience, skills, and education information
+Preprocessing:
+
+Data cleaning and standardization
+Date conversion and handling of missing values
+Automated Recommendation:
+
+Prompt generation for the GPT-4 API
+Extraction of recommendations with detailed justifications
+Slide 3 – Methodology and Workflow:
+Data Flow:
+Import ➔ Preprocessing ➔ Prompt Construction ➔ Recommendation via GPT-4 ➔ Spreadsheet Update
+
+Automation:
+
+Batch processing of multiple candidates
+Automatic update of results in Google Drive
+Slide 4 – Results and Impact:
+Benefits:
+
+Increased efficiency in the selection process
+Improved recommendation quality
+Reduced manual analysis time
+Next Steps:
+
+Implementation of multiple recommendations per candidate
+Integration with performance evaluation systems
+Slide 5 – Conclusion and Recommendations:
+Summary:
+
+A robust and scalable AI-powered project
+A strategic decision-support tool for HR
+Recommendations for Improvement:
+
+Refinement in the extraction and presentation of API data
+Expansion of the system to include multiple job recommendations and real-time feedback"
+4,Readme,"Job Recommendation System using GPT-4
+This project implements a job recommendation system that leverages OpenAI's GPT-4 API. The application analyzes candidate profiles from multiple Excel files stored on Google Drive, preprocesses the data, and generates personalized job recommendations based on candidates' skills, experiences, and qualifications.
+
+Table of Contents
+Overview
+Features
+Technologies and Libraries Used
+Project Architecture and Workflow
+Setup and Execution
+Future Improvements
+Conclusion
+Overview
+The system automates the matching process between candidates and job opportunities. By employing data preprocessing techniques and GPT-4's generative capabilities, the system provides detailed job recommendations along with thorough explanations. It integrates data from Excel spreadsheets stored on Google Drive, enabling an automated matching process between candidate profiles and available job listings.
+
+Features
+Data Import and Reading: Reads multiple Excel files containing candidate summaries, general information, skills, education, experience, and available job positions.
+Data Preprocessing: Cleans the data by removing unnecessary columns, handling missing values, formatting dates, and eliminating duplicates.
+GPT-4 API Integration: Sends a detailed prompt (including candidate profile details and job options) to the GPT-4 API to receive a job recommendation.
+Recommendation Generation:
+A function to generate a recommendation for a specific candidate.
+A function to generate a correspondence table for multiple candidates.
+Google Drive Spreadsheet Update: Merges new recommendation data with an existing spreadsheet and saves the updated version back to Google Drive.
+Technologies and Libraries Used
+Programming Language: Python
+Key Libraries:
+pandas: For data manipulation and analysis.
+sklearn.feature_extraction.text and sklearn.metrics.pairwise: Mentioned for text operations and cosine similarity (though in this code they are not directly used for the recommendation).
+openai: For integrating with the GPT-4 API.
+google.colab: For mounting Google Drive and executing the notebook in an interactive environment.
+Environment: Google Colab – which provides native integration with Google Drive and interactive notebook execution.
+Project Architecture and Workflow
+Import Libraries and Initial Setup:
+
+Install and import required libraries.
+Mount Google Drive to access the Excel files containing candidate and job data.
+Data Reading and Preprocessing:
+
+Read Excel files containing candidate summaries, general information, skills, education, experience, and available job positions.
+Remove unnecessary columns (e.g., empresa_experiencia and instituicao).
+Format the data by handling missing values, converting text to lowercase, stripping extra spaces, and converting date columns.
+Generate concatenated text fields for candidate experience, education, and skills to be used in the GPT-4 prompt.
+OpenAI API Configuration:
+
+A function (set_openai_api_key()) is used to load the API key from a text file stored on Google Drive.
+The API key is set with openai.api_key.
+Generating Recommendations:
+
+Function: recomendar_vaga_completa
+Selects candidate information (summary, keywords, skills, experience, and education) based on a candidate ID.
+Constructs a detailed prompt with the candidate's profile and a list of available jobs.
+Sends the prompt to the GPT-4 API and returns the recommendation.
+Example: Call the function with a specific candidate ID (e.g., id_candidato = 1).
+Generating the Correspondence Table:
+
+Function: gerar_tabela_correspondencias
+Iterates over a specified number of candidates (e.g., 3) and retrieves the recommendation for each.
+Attempts to extract the compatible job, compatibility percentage, and justification from the GPT-4 response (with error handling).
+Consolidates the results into a DataFrame.
+Updating the Google Drive Spreadsheet:
+
+Reads an existing spreadsheet from Google Drive.
+Merges the new recommendation data with the existing data.
+Saves the updated DataFrame back to the same spreadsheet.
+Setup and Execution
+Prerequisites
+A Google account with access to Google Drive for storing data files.
+Access to Google Colab for executing the notebook.
+An OpenAI API key (stored in a file named open_ai_key.txt on Google Drive).
+Execution Steps
+Open in Colab:
+
+Load the notebook in Google Colab.
+Execute the cells sequentially.
+Mount Google Drive:
+
+The code uses drive.mount('/content/drive') to access data files stored in Google Drive. Ensure the paths to the Excel files are correct.
+Install and Import Libraries:
+
+Run the initial cells to install (if necessary) and import all required libraries.
+Data Preprocessing:
+
+The code performs data cleaning, formatting, and consolidation of candidate and job information.
+Configure the OpenAI API:
+
+Use the set_openai_api_key() function to load and set your OpenAI API key.
+Generate Recommendations:
+
+Use the function recomendar_vaga_completa(id_candidato) to generate a recommendation for a specific candidate.
+For multiple candidates, use the function gerar_tabela_correspondencias(num_candidatos).
+Update the Spreadsheet:
+
+The code reads an existing spreadsheet, appends the new recommendation data, and saves the updated version back to Google Drive.
+Example Code Snippet
+python
+Copiar
+# Example: Recommendation for a single candidate
+id_candidato = 1
+recomendacao = recomendar_vaga_completa(id_candidato)
+print(recomendacao)
+
+# Example: Generate a correspondence table for the first 3 candidates
+tabela_correspondencias = gerar_tabela_correspondencias(num_candidatos=3)
+print(tabela_correspondencias)
+Future Improvements
+Multiple Job Recommendations: Allow the system to recommend more than one job per candidate, offering a list of suitable options.
+Better Information Extraction: Improve the extraction logic to accurately populate fields such as ""compatible job"" and ""compatibility percentage"" rather than consolidating most details into the justification.
+Bidirectional Matching: Extend the system to allow companies to search for candidates based on job requirements, making it a two-way matching tool.
+Customizable Weights: Enable customization of weights for specific criteria (e.g., experience, education) during the matching process to tailor recommendations to the unique needs of each job opening.
+Conclusion
+This project demonstrates how to integrate multiple data sources with advanced AI capabilities (via GPT-4) to automate the job recommendation process. By leveraging Google Drive for data storage, Pandas for data processing, and the OpenAI API for generating recommendations, the system provides a powerful tool to streamline recruitment by delivering personalized job suggestions along with detailed explanations."
