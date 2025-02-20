@@ -1,5 +1,4 @@
-##  Documentatios_generator: A Documentation Generator for Developers
-
+##  Documentation_generator: A Documentation Generator for different audience
 This repository provides a comprehensive tool for generating documentation from code. It aims to simplify the process of creating user manuals, API documentation, and other technical documents. 
 
 ## Main Features
