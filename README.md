@@ -23,7 +23,7 @@ cd documentation_generator_HF
 - **Install the dependencies: pip install -r requirements.txt
 - **Run the application: python app.py
 - **Access the interface: Open your browser and go to http://localhost:7860 (or the configured port) to use the tool.
--**Using on Hugging Face Spaces: Simply visit the Documentation Generator HF page and use the interface directly in your browser without any local installation.
+- **Using on Hugging Face Spaces: Simply visit the Documentation Generator HF page and use the interface directly in your browser without any local installation.
 
 ## License
 
