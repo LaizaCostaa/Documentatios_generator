@@ -1,4 +1,4 @@
-##  Documentation_generator: A Documentation Generator for different audience using LLM
+##  Documentation_generator: A Documentation Generator for different audience 
 
 ## Overview
 Maintaining comprehensive documentation can be a challenge—especially in fast-paced development environments. The Documentation Generator streamlines this process by automating the extraction of code comments and docstrings, formatting them into a cohesive and accessible document. Whether you are working on a small project or a large codebase, this tool helps ensure that your documentation is always current and easy to navigate.
@@ -32,4 +32,5 @@ The Documentatios_generator offers the following key features:
 
 The Documentatios_generator is a powerful tool for developers who need to generate documentation quickly and efficiently. 
 The tool can be further enhanced by incorporating user feedback and improving the ML model's ability to understand complex code structures. In addition, it is a good idea to use examples to train the model (few shot tecnhique). In this scenario it was used zero-shot, given the limitation of tokens and the local sincronicity with the Space. Contributions are welcome! If you have suggestions for improvements, bug fixes, or new features, feel free to open an issue or submit a pull request.
+
 
